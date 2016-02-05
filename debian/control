@@ -1,0 +1,29 @@
+Source: centreon-engine
+Section: net
+Priority: extra
+Maintainer: Sébastien Gross <seb-ppa@chezwam.org>
+Build-Depends: debhelper (>= 7.0.50), libcentreon-clib-dev
+Standards-Version: 3.9.5
+Homepage: https://www.centreon.com/en/products/centreon/centreon-engine/
+Vcs-Browser: https://github.com/centreon/centreon-engine
+Vcs-Git: https://github.com/centreon/centreon-engine.git
+
+Package: centreon-engine
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, adduser
+Description: improved nagios compatible monitoring engine
+ Centreon Engine offers a mature alternative to Nagios. Centreon Engine is a
+ monitoring engine more powerful than Nagios. More advandes in terms of
+ functionality and more resource-efficient, it can better integrate into
+ existing systems (cloud, virtualization, light boxes).
+ .
+ Centreon development teams gave life to Centreon Engine using version 3.2.3
+ Nagios as a starting point. Their goal is to improve performance and
+ motivate the community with new challenges.
+ .
+ Today, all external stakeholders are invited to join us to work with our
+ team on larger improvements. For 2 years, we have made sure to meet user
+ demands for technical improvements (performance enhancements, connectors,
+ building code sources, unit testing) and functional (simplified
+ configuration, polling for the second, recurring downtimes , timezones
+ management, correlation, ...).

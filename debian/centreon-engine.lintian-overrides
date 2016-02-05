@@ -1,0 +1,2 @@
+centreon-engine: binary-without-manpage usr/bin/centengine
+centreon-engine: binary-without-manpage usr/bin/centenginestats
