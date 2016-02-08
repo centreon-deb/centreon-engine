@@ -42,15 +42,11 @@ override_dh_clean:
 	  scripts/centengine.pc \
 	  scripts/upstart.conf \
 	  test/paths.hh \
-	  test/paths.hh.in \
-	  test/running/etc/host_with_no_check_cmd.cfg \
-	  test/running/etc/logs_for_modules.cfg \
-	  test/running/etc/modules_symbols.cfg \
-	  test/running/etc/service_with_no_check_cmd.cfg \
 	  conf/resource.cfg \
 	  inc/compatibility/common.h \
 	  scripts/centengine.sh \
 	  scripts/logrotate.conf
 
 	rm -rf \
-	  conf/objects/*.cfg
+	  conf/objects/*.cfg \
+	  test/running/etc/*.cfg 
