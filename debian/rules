@@ -35,8 +35,7 @@ override_dh_auto_install:
 	fi
 
 override_dh_clean:
-	dh_clean -O--sourcedirectory=build
-	rm -f \
+	dh_clean \
 	  conf/centengine.cfg \
 	  inc/com/centreon/engine/version.hh \
 	  inc/compatibility/locations.h \
@@ -48,8 +47,10 @@ override_dh_clean:
 	  test/running/etc/logs_for_modules.cfg \
 	  test/running/etc/modules_symbols.cfg \
 	  test/running/etc/service_with_no_check_cmd.cfg \
-	  conf/objects \
 	  conf/resource.cfg \
 	  inc/compatibility/common.h \
 	  scripts/centengine.sh \
 	  scripts/logrotate.conf
+
+	rm -rf \
+	  conf/objects 
