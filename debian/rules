@@ -47,4 +47,9 @@ override_dh_clean:
 	  test/running/etc/host_with_no_check_cmd.cfg \
 	  test/running/etc/logs_for_modules.cfg \
 	  test/running/etc/modules_symbols.cfg \
-	  test/running/etc/service_with_no_check_cmd.cfg
+	  test/running/etc/service_with_no_check_cmd.cfg \
+	  conf/objects \
+	  conf/resource.cfg \
+	  inc/compatibility/common.h \
+	  scripts/centengine.sh \
+	  scripts/logrotate.conf
