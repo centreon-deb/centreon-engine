@@ -21,8 +21,7 @@ override_dh_auto_configure:
 	    -DWITH_LOGROTATE_SCRIPT=1 \
 	    -DWITH_CREATE_FILES=0 \
 	    -DWITH_VAR_DIR=$(DESTDIR)/var/log/centreon-engine  \
-	    -DWITH_RW_DIR=$(DESTDIR)/var/lib/centreon-engine/rw  \
-	    -DWITH_STARTUP_DIR=$(DESTDIR)/etc/init.d
+	    -DWITH_RW_DIR=$(DESTDIR)/var/lib/centreon-engine/rw
 
 override_dh_auto_install:
 	dh_auto_install -O--sourcedirectory=build
@@ -33,6 +32,10 @@ override_dh_auto_install:
 	if test -f $(PACKAGEDIR)/etc/init.d/centengine.conf; then \
 	  mv $(PACKAGEDIR)/etc/init.d $(PACKAGEDIR)/etc/init; \
 	fi
+
+override_dh_installinit:
+	dh_installinit --name centengine
+
 
 override_dh_clean:
 	dh_clean \
