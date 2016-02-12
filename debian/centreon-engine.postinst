@@ -25,11 +25,21 @@ add_user() {
 }
 
 fixperms() {
-    for d in /var/lib/centreon-engine /var/lib/centreon-engine/rw \
+    for d in /var/lib/centreon-engine/rw \
 	     /var/log/centreon-engine; do
         dpkg-statoverride --list $d > /dev/null || \
             dpkg-statoverride --update --add centreon-engine centreon-engine 750 $d
     done
+    for d in /var/lib/centreon-engine; do
+        dpkg-statoverride --list $d > /dev/null || \
+            dpkg-statoverride --update --add centreon-engine centreon-engine 770 $d
+    done
+}
+
+
+remove_override() {
+    dpkg-statoverride --list /var/*/centreon-engine* | awk '{print $NF}' | \
+	xargs -n1 dpkg-statoverride --remove
 }
 
 case "$1" in
@@ -37,7 +47,9 @@ case "$1" in
         add_user
         fixperms
     ;;
-
+    remove|purge)
+	remove_override
+    ;;
     abort-upgrade|abort-remove|abort-deconfigure)
     ;;
 
