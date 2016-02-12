@@ -25,9 +25,10 @@ add_user() {
 }
 
 fixperms() {
-    for d in /var/lib/centreon-engine /var/log/centreon-engine; do
+    for d in /var/lib/centreon-engine /var/lib/centreon-engine/rw \
+	     /var/log/centreon-engine; do
         dpkg-statoverride --list $d > /dev/null || \
-            dpkg-statoverride --update --add centreon-engine centreon-engine 700 $d
+            dpkg-statoverride --update --add centreon-engine centreon-engine 750 $d
     done
 }
 
